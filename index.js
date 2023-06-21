@@ -40,7 +40,7 @@ const corsOptions = {
 //middlewares
 app.use(cors(corsOptions));// 指定可访问的前端应用的URL
 
-app.use(cors()) // 用proxy（client package）的时候不必用到
+// 用proxy（client package）的时候 app.use(cors()) 不必用到
 app.use(cookieParser()) // 将jwt放入cookie中
 app.use(express.json());//将 Express 服务器配置为解析 JSON 格式的请求体
 
