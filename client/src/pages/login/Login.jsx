@@ -1,4 +1,4 @@
-import axiosInstance from "../config";
+import axiosInstance from "../../config";
 
 import { useContext, useState } from "react";
 import { useNavigate,useLocation } from "react-router-dom";
