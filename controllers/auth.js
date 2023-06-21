@@ -40,6 +40,8 @@ export const login = async (req, res, next) => {
     res
       .cookie("access_token", token, {
         httpOnly: true, //确保 cookie 只能被服务器读取和操作，而无法通过客户端的 JavaScript 访问
+        SameSite: 'None', //允许跨站点的cookie
+        Secure: true, // 仅在HTTPS连接中发送cookie
       })
       .status(200)
       .json({ details: { ...otherDetails }, isAdmin });
