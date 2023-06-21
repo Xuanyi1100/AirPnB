@@ -32,7 +32,14 @@ mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
 
+const corsOptions = {
+  origin: 'https://zoudeyi-admin-airpnb.onrender.com', 
+  credentials: true,
+};
+
 //middlewares
+app.use(cors(corsOptions));// 指定可访问的前端应用的URL
+
 app.use(cors()) // 用proxy（client package）的时候不必用到
 app.use(cookieParser()) // 将jwt放入cookie中
 app.use(express.json());//将 Express 服务器配置为解析 JSON 格式的请求体
@@ -53,13 +60,6 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 
-// app.use("/static/css", express.static(path.join(__dirname, "client/build/static/css"), { 
-//   setHeaders: (res, path) => {
-//     if (path.endsWith(".css")) {
-//       res.setHeader("Content-Type", "text/css");
-//     }
-//   },
-// }));
 
 
 app.use((err, req, res, next) => {
