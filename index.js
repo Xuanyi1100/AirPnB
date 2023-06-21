@@ -43,17 +43,23 @@ app.use("/api/hotels", hotelsRoute);
 app.use("/api/rooms", roomsRoute);
 
 app.use(express.static(path.join(__dirname, "/client/build")));
-app.use(express.static(path.join(__dirname, "../admin/build")));
+app.use(express.static(path.join(__dirname, "/admin/build")));
 
 app.get('/admin*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../admin/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '/admin/build', 'index.html'));
 });
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
 });
 
-
+// app.use("/static/css", express.static(path.join(__dirname, "client/build/static/css"), { 
+//   setHeaders: (res, path) => {
+//     if (path.endsWith(".css")) {
+//       res.setHeader("Content-Type", "text/css");
+//     }
+//   },
+// }));
 
 
 app.use((err, req, res, next) => {
