@@ -20,7 +20,7 @@ function App() {
     const { user } = useContext(AuthContext);
 
     if (!user) {
-      return <Navigate to="/login" />;
+      return <Navigate to="/admin/login" />;
     }
 
     return children;
@@ -30,7 +30,7 @@ function App() {
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
         <Routes>
-          <Route path="/admin/">           
+          <Route path="/admin">           
             <Route
               index
               element={
@@ -39,8 +39,8 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="login" element={<Login />} />
-            <Route path="users">
+            <Route path="/admin/login" element={<Login />} />
+            <Route path="/admin/users">
               <Route
                 index
                 element={
@@ -66,7 +66,7 @@ function App() {
                 }
               />
             </Route>
-            <Route path="hotels">
+            <Route path="/admin/hotels">
               <Route
                 index
                 element={
@@ -92,7 +92,7 @@ function App() {
                 }
               />
             </Route>
-            <Route path="rooms">
+            <Route path="/admin/rooms">
               <Route
                 index
                 element={
