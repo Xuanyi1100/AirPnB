@@ -57,7 +57,7 @@ const NewHotel = () => {
       };
 
       await axiosInstance.post("/hotels", newhotel);
-      navigate("/admin/hotels");
+      navigate("/hotels");
 
     } catch (err) {console.log(err)}
   };
