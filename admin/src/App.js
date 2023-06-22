@@ -100,7 +100,7 @@ function App() {
                     <List columns={roomColumns} />
                   </ProtectedRoute>
                 }
-              />
+              /> 
               <Route
                 path=":productId"
                 element={

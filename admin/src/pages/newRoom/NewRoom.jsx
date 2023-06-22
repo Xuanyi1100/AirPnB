@@ -32,7 +32,7 @@ const NewRoom = () => {
       console.log(err);
     }
   };
-  navigate("/rooms");
+  navigate("/admin/rooms");
 
   console.log(info)
   return (

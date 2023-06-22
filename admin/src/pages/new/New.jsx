@@ -35,7 +35,7 @@ const New = ({ inputs, title }) => {
       };
 
       await axiosInstance.post("/auth/register", newUser);
-      navigate("/users");
+      navigate("/admin/users");
     } catch (err) {
       console.log(err);
     }
