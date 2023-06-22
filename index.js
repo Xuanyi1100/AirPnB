@@ -52,15 +52,15 @@ app.use("/api/rooms", roomsRoute);
 app.use(express.static(path.join(__dirname, "/client/build")));
 app.use(express.static(path.join(__dirname, "/admin/build")));
 
-
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
-});
 app.get('/admin*', (req, res) => {
   res.sendFile(path.join(__dirname, '/admin/build', 'index.html'));
   console.log(req.url)
 });
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
+
 
 
 app.use((err, req, res, next) => {
