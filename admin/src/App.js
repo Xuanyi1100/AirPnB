@@ -30,7 +30,7 @@ function App() {
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
         <Routes>
-          <Route path="/admin">           
+          <Route path="/admin/">           
             <Route
               index
               element={
