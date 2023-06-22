@@ -20,9 +20,8 @@ function App() {
     const { user } = useContext(AuthContext);
 
     if (!user) {
-      return <Navigate to="/admin/login" />;
+      return <Navigate to="/login" />;
     }
-
     return children;
   };
 
@@ -39,8 +38,8 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="/admin/login" element={<Login />} />
-            <Route path="/admin/users">
+            <Route path="login" element={<Login />} />
+            <Route path="users">
               <Route
                 index
                 element={
@@ -66,7 +65,7 @@ function App() {
                 }
               />
             </Route>
-            <Route path="/admin/hotels">
+            <Route path="hotels">
               <Route
                 index
                 element={
@@ -92,7 +91,7 @@ function App() {
                 }
               />
             </Route>
-            <Route path="/admin/rooms">
+            <Route path="rooms">
               <Route
                 index
                 element={
