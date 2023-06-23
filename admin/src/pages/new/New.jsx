@@ -4,6 +4,7 @@ import Navbar from "../../components/navbar/Navbar";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import { useState } from "react";
 import axiosInstance from "../../config";
+import axios from  "axios";
 
 import { useNavigate } from "react-router-dom";
  
@@ -21,7 +22,7 @@ const New = ({ inputs, title }) => {
     data.append("file", file);
     data.append("upload_preset", "upload");
     try {
-      const uploadRes = await axiosInstance.post(
+      const uploadRes = await axios.post(
         "https://api.cloudinary.com/v1_1/deekhfc0i/image/upload",
         data
       );
@@ -40,7 +41,7 @@ const New = ({ inputs, title }) => {
       console.log(err);
     }
   };
-
+ 
   console.log(info);
   return (
     <div className="new">
