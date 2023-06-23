@@ -22,22 +22,23 @@ const New = ({ inputs, title }) => {
     data.append("file", file);
     data.append("upload_preset", "upload");
     try {
+
+      let url="" ;
+      if(file){
       const uploadRes = await axios.post(
         "https://api.cloudinary.com/v1_1/deekhfc0i/image/upload",
         data
       );
-      console.log(uploadRes.data);
 
-      const { url } = uploadRes.data;
-
+        url  = uploadRes.data.url;
+      };
       const newUser = {
         ...info,
-        img: url,
-      };
+        img: url,}
 
       await axiosInstance.post("/auth/register", newUser);
       navigate("/users");
-    } catch (err) {
+     }catch (err) {
       console.log(err);
     }
   };
